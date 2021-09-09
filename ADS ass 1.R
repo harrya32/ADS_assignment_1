@@ -74,9 +74,13 @@ plot(cor(TC_noise), xlab = "TC", ylab = "TC", main = "TC noise correlation", key
 plot(cor(t(SM_noise)), xlab = "SM", ylab = "SM", main = "SM noise correlation")
 
 #using sturges binning method
-hist(TC_noise, breaks = 12)
+hist(TC_noise, breaks = "Sturges")
+lines(c(-0.98, -0.98), c(0, 100), col = 2, lwd = 3)
+lines(c(0.98, 0.98), c(0, 100), col = 2, lwd = 3)
 
-hist(SM_noise, breaks = 13)
+hist(SM_noise, breaks = "Sturges")
+lines(c(-0.24, -0.24), c(0, 200), col = 2, lwd = 3)
+lines(c(0.24, 0.24), c(0, 200), col = 2, lwd = 3)
 
 prod = TC_noise %*% SM_noise #?? what to do w this
 
